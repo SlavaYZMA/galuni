@@ -1,105 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* АЛГОРИТМИЧЕСКАЯ АБЪЕКЦИЯ — Digital Clinic Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Sterile Medical Palette */
+    --background: 0 0% 96%;            /* #F5F5F5 medical plastic */
+    --foreground: 0 0% 0%;             /* #000000 pure black typography */
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 323 100% 50%;           /* #FF007A synthetic flesh pink */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 0%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 323 100% 50%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 88%;               /* #E0E0E0 */
+    --input: 0 0% 88%;
+    --ring: 323 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Custom tokens */
+    --clinic-pink: 323 100% 50%;
+    --clinic-border: 0 0% 88%;
+    --clinic-grid: 0 0% 82%;
+    --clinic-label: 0 0% 50%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-background: 0 0% 96%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 323 100% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 0 0% 92%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 88%;
+    --sidebar-ring: 323 100% 50%;
   }
 }
 
 @layer base {
   * {
     @apply border-border;
+    cursor: none;
   }
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: hsl(var(--clinic-pink));
+    color: hsl(0 0% 100%);
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 2px; height: 2px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--background)); }
+  ::-webkit-scrollbar-thumb { background: hsl(var(--foreground)); }
+}
+
+@layer utilities {
+  /* Film grain noise overlay */
+  .film-grain::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.04;
+    z-index: 9999;
+    animation: grain 0.5s steps(1) infinite;
+  }
+
+  @keyframes grain {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-1%, -1%); }
+    20% { transform: translate(1%, 1%); }
+    30% { transform: translate(-2%, 1%); }
+    40% { transform: translate(2%, -1%); }
+    50% { transform: translate(-1%, 2%); }
+    60% { transform: translate(1%, -2%); }
+    70% { transform: translate(-2%, -1%); }
+    80% { transform: translate(2%, 2%); }
+    90% { transform: translate(-1%, -2%); }
+  }
+
+  .clinic-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: hsl(var(--clinic-label));
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .scan-line {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(var(--clinic-pink) / 0.08) 2px,
+      hsl(var(--clinic-pink) / 0.08) 4px
+    );
+  }
+
+  .text-pink {
+    color: hsl(var(--clinic-pink));
+  }
+
+  .border-clinic {
+    border-color: hsl(var(--clinic-border));
+  }
+
+  .bg-clinic-pink {
+    background-color: hsl(var(--clinic-pink));
   }
 }
