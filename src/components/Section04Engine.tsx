@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Client } from "@gradio/client"; 
+import { client } from "@gradio/client"; 
 
 // ТУТ ТОЛЬКО БАЗОВАЯ ССЫЛКА (без /api/generate)
 const GRADIO_BASE_URL = "https://ee26ee47ddd0093e11.gradio.live";
@@ -122,12 +122,12 @@ export default function Section04Engine() {
       const response = await fetch(imageBase64);
       const blob = await response.blob();
 
-      // Подключаемся
-      const client = await Client.connect(GRADIO_BASE_URL);
+      // ИСПРАВЛЕНИЕ: Используем функцию client (с маленькой буквы)
+      const app = await client(GRADIO_BASE_URL);
 
       console.log("Задача отправлена. Ожидаем результат...");
 
-      const output = await client.predict("/generate", [
+      const output = await app.predict("/generate", [
         blob,
         params.prompt,
         params.negative_prompt,
