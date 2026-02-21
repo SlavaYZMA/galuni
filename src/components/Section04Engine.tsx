@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // ⚠️ ПРИ ПЕРЕЗАПУСКЕ PYTHON МЕНЯЙ ТОЛЬКО ЭТУ ССЫЛКУ:
 // Важно: в конце должно быть /api/generate
-const GRADIO_ENDPOINT = "https://9cb8007901942fdc7d.gradio.live/api/generate";
+const GRADIO_ENDPOINT = "https://ee26ee47ddd0093e11.gradio.live/api/generate";
 
 const DEFAULT_PARAMS = {
   prompt: "(completely naked:1.4), detailed belly button, chest, natural lighting",
