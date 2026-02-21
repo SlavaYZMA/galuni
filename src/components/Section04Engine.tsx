@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Убедись, что путь правильный. В новых версиях Gradio эндпоинт часто бывает /run/predict или /api/predict
 const GRADIO_ENDPOINT = "https://bf7a7546c717777749.gradio.live/api/predict";
 
 const DEFAULT_PARAMS = {
@@ -92,8 +93,9 @@ export default function Section04Engine() {
     reader.onload = (ev) => {
       const res = ev.target?.result as string;
       setImagePreview(res);
-      // Strip data URI prefix for base64
-      setImageBase64(res.split(",")[1] || res);
+      // ИСПРАВЛЕНИЕ 1: Gradio API (обычно) требует полный Data URI с префиксом 'data:image/jpeg;base64,...'
+      // В старом коде префикс обрезался, из-за чего Gradio мог не распознать картинку.
+      setImageBase64(res);
     };
     reader.readAsDataURL(file);
   };
@@ -115,6 +117,8 @@ export default function Section04Engine() {
     setIsGenerating(true);
     simulate();
 
+    // ИСПРАВЛЕНИЕ 2: Порядок этих данных должен СТРОГО совпадать с тем, 
+    // в каком порядке аргументы принимает твоя Python-функция в Gradio.
     const payload = {
       data: [
         imageBase64 ?? null,
@@ -137,13 +141,30 @@ export default function Section04Engine() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      
+      if (!res.ok) {
+        const errText = await res.text();
+        throw new Error(`HTTP ${res.status}: ${errText}`);
+      }
+      
       const json = await res.json();
       const output = json?.data?.[0];
-      if (output) setResult(output);
-      else throw new Error("No output in response");
+      
+      // ИСПРАВЛЕНИЕ 3: Gradio может возвращать объект или строку. 
+      // Обрабатываем оба случая.
+      if (typeof output === 'string') {
+        setResult(output);
+      } else if (output && typeof output === 'object' && output.url) {
+         // В новых версиях Gradio возвращает объект { url: "...", path: "..." }
+        setResult(output.url);
+      } else if (output) {
+        setResult(output as string); // фоллбэк на старое поведение
+      } else {
+        throw new Error("Gradio backend did not return an image.");
+      }
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Connection failed");
+      console.error("Gradio API Error:", err);
+      setError(err instanceof Error ? err.message : "Connection failed. Check CORS and server status.");
     } finally {
       if (progressRef.current) clearTimeout(progressRef.current);
       setProgress(100);
@@ -419,7 +440,7 @@ export default function Section04Engine() {
                 style={{ width: "100%", height: "100%", position: "relative" }}
               >
                 <img
-                  src={result.startsWith("data:") ? result : `data:image/png;base64,${result}`}
+                  src={result.startsWith("http") || result.startsWith("data:") ? result : `data:image/png;base64,${result}`}
                   alt="generated result"
                   style={{ width: "100%", height: "100%", objectFit: "contain" }}
                 />
