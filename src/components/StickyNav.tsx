@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const sections = [
   { id: "hero", label: "00" },
   { id: "trace", label: "01" },
   { id: "theory", label: "02" },
   { id: "gallery", label: "03" },
-  { id: "engine", label: "04" },
 ];
 
 export default function StickyNav() {
@@ -47,39 +47,34 @@ export default function StickyNav() {
         alignItems: "flex-end",
       }}
     >
+      {/* Language switcher at top */}
+      <div style={{ marginBottom: "1rem" }}>
+        <LanguageSwitcher />
+      </div>
+
       {sections.map(({ id, label }) => (
         <button
           key={id}
           data-hover
           onClick={() => scrollTo(id)}
           style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            background: "none",
-            border: "none",
-            padding: 0,
-            cursor: "none",
+            display: "flex", alignItems: "center", gap: "0.5rem",
+            background: "none", border: "none", padding: 0, cursor: "none",
           }}
         >
-          <span
-            style={{
-              display: "block",
-              width: active === id ? "24px" : "8px",
-              height: "1px",
-              backgroundColor: active === id ? "hsl(323,100%,50%)" : "hsl(0,0%,0%)",
-              transition: "all 0.3s ease",
-            }}
-          />
-          <span
-            style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: "0.6rem",
-              letterSpacing: "0.15em",
-              color: active === id ? "hsl(323,100%,50%)" : "hsl(0,0%,50%)",
-              transition: "color 0.3s",
-            }}
-          >
+          <span style={{
+            display: "block",
+            width: active === id ? "24px" : "8px",
+            height: "1px",
+            backgroundColor: active === id ? "hsl(323,100%,50%)" : "hsl(0,0%,0%)",
+            transition: "all 0.3s ease",
+          }} />
+          <span style={{
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: "0.6rem", letterSpacing: "0.15em",
+            color: active === id ? "hsl(323,100%,50%)" : "hsl(0,0%,50%)",
+            transition: "color 0.3s",
+          }}>
             {label}
           </span>
         </button>
