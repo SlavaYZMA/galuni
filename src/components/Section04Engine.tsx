@@ -2,7 +2,7 @@ import { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // ТОЧНЫЙ ЭНДПОИНТ ИЗ ДОКУМЕНТАЦИИ:
-const GRADIO_ENDPOINT = "https://07ddbc0792bfabcd5c.gradio.live/run/generate";
+const GRADIO_ENDPOINT = "https://07ddbc0792bfabcd5c.gradio.live/api/generate";
 
 const DEFAULT_PARAMS = {
   prompt: "(completely naked:1.4), detailed belly button, chest, natural lighting",
