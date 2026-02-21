@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { client } from "@gradio/client"; 
 
 // ТУТ ТОЛЬКО БАЗОВАЯ ССЫЛКА (без /api/generate)
-const GRADIO_BASE_URL = "https://ee26ee47ddd0093e11.gradio.live";
+const GRADIO_BASE_URL = "https://5af0dcce33a8f83be4.gradio.live";
 
 const DEFAULT_PARAMS = {
   prompt: "(completely naked:1.4), detailed belly button, chest, natural lighting",
