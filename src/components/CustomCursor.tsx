@@ -14,15 +14,28 @@ export default function CustomCursor() {
     let raf: number;
 
     const onMove = (e: MouseEvent) => {
+      // Если мы в админке — полностью прячем кастомный курсор
+      if (window.location.pathname.startsWith('/admin')) {
+        dot.style.opacity = "0";
+        ring.style.opacity = "0";
+        return;
+      } else {
+        dot.style.opacity = "1";
+        ring.style.opacity = "1";
+      }
+
       mouseX = e.clientX;
       mouseY = e.clientY;
       dot.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
     };
 
     const animate = () => {
-      ringX += (mouseX - ringX) * 0.12;
-      ringY += (mouseY - ringY) * 0.12;
-      ring.style.transform = `translate(${ringX - 16}px, ${ringY - 16}px)`;
+      // Не анимируем кольцо в админке
+      if (!window.location.pathname.startsWith('/admin')) {
+        ringX += (mouseX - ringX) * 0.12;
+        ringY += (mouseY - ringY) * 0.12;
+        ring.style.transform = `translate(${ringX - 16}px, ${ringY - 16}px)`;
+      }
       raf = requestAnimationFrame(animate);
     };
 
@@ -63,7 +76,7 @@ export default function CustomCursor() {
           pointerEvents: "none",
           zIndex: 99999,
           mixBlendMode: "multiply",
-          transition: "none",
+          transition: "opacity 0.2s ease", // Добавили плавное исчезновение
         }}
       />
       <div
@@ -76,7 +89,7 @@ export default function CustomCursor() {
           border: "1px solid hsl(0,0%,0%)",
           pointerEvents: "none",
           zIndex: 99998,
-          transition: "width 0.2s, height 0.2s, border-color 0.2s",
+          transition: "width 0.2s, height 0.2s, border-color 0.2s, opacity 0.2s ease", // Добавили плавное исчезновение
         }}
       />
     </>
