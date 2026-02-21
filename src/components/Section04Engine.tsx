@@ -1,20 +1,20 @@
 import { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Убедись, что путь правильный. В новых версиях Gradio эндпоинт часто бывает /run/predict или /api/predict
-const GRADIO_ENDPOINT = "https://bf7a7546c717777749.gradio.live/api/predict";
+// ТОЧНЫЙ ЭНДПОИНТ ИЗ ДОКУМЕНТАЦИИ:
+const GRADIO_ENDPOINT = "https://bf7a7546c717777749.gradio.live/api/generate";
 
 const DEFAULT_PARAMS = {
   prompt: "(completely naked:1.4), detailed belly button, chest, natural lighting",
   negative_prompt: "cartoon, painting, illustration, airbrushed, doll",
   steps: 30,
-  cfg_scale: 7.5,
-  controlnet_scale: 1.0,
-  hires_strength: 0.45,
-  canny_low: 82,
-  canny_high: 240,
-  abject_strength: 0.85,
-  final_refine: 0.4,
+  cfg_scale: 8.5, // Изменил дефолт на 8.5 по документации
+  controlnet_scale: 0.85, // Изменил дефолт на 0.85
+  hires_strength: 0.4,
+  canny_low: 100,
+  canny_high: 200,
+  abject_strength: 0.45,
+  final_refine: 0.2,
 };
 
 interface SliderProps {
@@ -93,8 +93,7 @@ export default function Section04Engine() {
     reader.onload = (ev) => {
       const res = ev.target?.result as string;
       setImagePreview(res);
-      // ИСПРАВЛЕНИЕ 1: Gradio API (обычно) требует полный Data URI с префиксом 'data:image/jpeg;base64,...'
-      // В старом коде префикс обрезался, из-за чего Gradio мог не распознать картинку.
+      // Оставляем полный Data URI, Gradio его понимает
       setImageBase64(res);
     };
     reader.readAsDataURL(file);
@@ -117,21 +116,20 @@ export default function Section04Engine() {
     setIsGenerating(true);
     simulate();
 
-    // ИСПРАВЛЕНИЕ 2: Порядок этих данных должен СТРОГО совпадать с тем, 
-    // в каком порядке аргументы принимает твоя Python-функция в Gradio.
+    // 11 ПАРАМЕТРОВ СТРОГО ИЗ ДОКУМЕНТАЦИИ:
     const payload = {
       data: [
-        imageBase64 ?? null,
-        params.prompt,
-        params.negative_prompt,
-        params.steps,
-        params.cfg_scale,
-        params.controlnet_scale,
-        params.hires_strength,
-        params.canny_low,
-        params.canny_high,
-        params.abject_strength,
-        params.final_refine,
+        imageBase64 ?? null,         // [0] input_image
+        params.prompt,               // [1] prompt
+        params.negative_prompt,      // [2] neg_prompt
+        params.steps,                // [3] steps
+        params.cfg_scale,            // [4] cfg
+        params.controlnet_scale,     // [5] control_scale
+        params.hires_strength,       // [6] hires_strength
+        params.canny_low,            // [7] low_thr
+        params.canny_high,           // [8] high_thr
+        params.abject_strength,      // [9] abject_strength
+        params.final_refine,         // [10] final_refine
       ],
     };
 
@@ -148,23 +146,22 @@ export default function Section04Engine() {
       }
       
       const json = await res.json();
-      const output = json?.data?.[0];
       
-      // ИСПРАВЛЕНИЕ 3: Gradio может возвращать объект или строку. 
-      // Обрабатываем оба случая.
-      if (typeof output === 'string') {
-        setResult(output);
-      } else if (output && typeof output === 'object' && output.url) {
-         // В новых версиях Gradio возвращает объект { url: "...", path: "..." }
-        setResult(output.url);
-      } else if (output) {
-        setResult(output as string); // фоллбэк на старое поведение
+      // Берем ПЕРВУЮ картинку из ТРЕХ возвращаемых элементов
+      const finalImageOutput = json?.data?.[0];
+      
+      if (typeof finalImageOutput === 'string') {
+        setResult(finalImageOutput);
+      } else if (finalImageOutput && typeof finalImageOutput === 'object' && finalImageOutput.url) {
+        setResult(finalImageOutput.url);
+      } else if (finalImageOutput && typeof finalImageOutput === 'object' && finalImageOutput.path) {
+        setResult(finalImageOutput.path);
       } else {
-        throw new Error("Gradio backend did not return an image.");
+        throw new Error("Gradio backend did not return a valid image. Check image size/format.");
       }
     } catch (err) {
       console.error("Gradio API Error:", err);
-      setError(err instanceof Error ? err.message : "Connection failed. Check CORS and server status.");
+      setError(err instanceof Error ? err.message : "Connection failed.");
     } finally {
       if (progressRef.current) clearTimeout(progressRef.current);
       setProgress(100);
@@ -429,7 +426,7 @@ export default function Section04Engine() {
                 </p>
                 <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.55rem", color: "hsl(0,0%,50%)" }}>{error}</p>
                 <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.5rem", color: "hsl(0,0%,60%)", marginTop: "1rem" }}>
-                  Ensure your Gradio backend is running at<br />bf7a7546c717777749.gradio.live
+                  Ensure your Gradio backend is running at<br />{GRADIO_ENDPOINT}
                 </p>
               </motion.div>
             )}
@@ -437,7 +434,7 @@ export default function Section04Engine() {
               <motion.div
                 key="result"
                 initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}
-                style={{ width: "100%", height: "100%", position: "relative" }}
+                style={{ width: "100%", height: "100%", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem" }}
               >
                 <img
                   src={result.startsWith("http") || result.startsWith("data:") ? result : `data:image/png;base64,${result}`}
@@ -448,6 +445,7 @@ export default function Section04Engine() {
                   position: "absolute", bottom: "1rem", left: "1rem",
                   fontFamily: "'JetBrains Mono', monospace",
                   fontSize: "0.5rem", color: "hsl(323,100%,50%)", letterSpacing: "0.15em",
+                  background: "hsl(0,0%,96%, 0.8)", padding: "4px 8px",
                 }}>
                   OUTPUT RENDERED / AI_CONF: 98.7%
                 </div>
