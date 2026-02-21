@@ -100,10 +100,9 @@ export default function Section03Gallery() {
       ) : (
         <div style={{ 
           display: "grid", 
-          // Автоматическая сетка: карточки не будут уже 450px, 
-          // что даст ровно 2 карточки (4 картинки) в ряд на ПК
-          gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 450px), 1fr))",
-          gap: "2rem",
+          // Уменьшили минимальную ширину карточки до 260px (было 450px)
+          gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 260px), 1fr))",
+          gap: "1.5rem", // Чуть уменьшили расстояние между карточками
           padding: "2rem clamp(1rem, 4vw, 4rem)"
         }}>
           {imprints.map((imp, i) => (
@@ -123,9 +122,9 @@ export default function Section03Gallery() {
                 {/* Shadow image */}
                 <div style={{ position: "relative", overflow: "hidden" }}>
                   <p style={{
-                    position: "absolute", top: "1rem", left: "1rem", zIndex: 2,
+                    position: "absolute", top: "0.5rem", left: "0.5rem", zIndex: 2, // Придвинули к краю
                     fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: "0.5rem", letterSpacing: "0.2em",
+                    fontSize: "0.45rem", letterSpacing: "0.2em", // Уменьшили шрифт
                     color: "hsl(323,100%,50%)",
                     textShadow: "0 0 4px rgba(255,255,255,0.8)"
                   }}>
@@ -151,9 +150,9 @@ export default function Section03Gallery() {
                 {/* Result image */}
                 <div style={{ position: "relative", overflow: "hidden", borderLeft: "1px solid hsl(0,0%,88%)" }}>
                   <p style={{
-                    position: "absolute", top: "1rem", left: "1rem", zIndex: 2,
+                    position: "absolute", top: "0.5rem", left: "0.5rem", zIndex: 2, // Придвинули к краю
                     fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: "0.5rem", letterSpacing: "0.2em",
+                    fontSize: "0.45rem", letterSpacing: "0.2em", // Уменьшили шрифт
                     color: "hsl(323,100%,50%)",
                     textShadow: "0 0 4px rgba(255,255,255,0.8)"
                   }}>
@@ -179,7 +178,7 @@ export default function Section03Gallery() {
 
               {/* Title bar */}
               <div style={{
-                padding: "1.5rem",
+                padding: "1rem", // Уменьшили внутренние отступы текстового блока
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "flex-start",
@@ -189,7 +188,7 @@ export default function Section03Gallery() {
                 <div>
                   <p style={{
                     fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: "0.8rem", fontWeight: 700,
+                    fontSize: "0.7rem", fontWeight: 700, // Сделали заголовок чуть меньше
                     letterSpacing: "0.05em",
                   }}>
                     {imp.title}
@@ -197,8 +196,8 @@ export default function Section03Gallery() {
                   {imp.description && (
                     <p style={{
                       fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: "0.6rem", color: "hsl(0,0%,40%)",
-                      marginTop: "0.4rem", lineHeight: 1.6,
+                      fontSize: "0.55rem", color: "hsl(0,0%,40%)", // Сделали описание чуть меньше
+                      marginTop: "0.4rem", lineHeight: 1.5,
                     }}>
                       {imp.description}
                     </p>
@@ -206,10 +205,10 @@ export default function Section03Gallery() {
                 </div>
                 <p style={{
                   fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: "0.5rem", color: "hsl(0,0%,50%)",
+                  fontSize: "0.45rem", color: "hsl(0,0%,50%)",
                   letterSpacing: "0.15em",
                   whiteSpace: "nowrap",
-                  marginLeft: "1rem"
+                  marginLeft: "0.5rem"
                 }}>
                   {new Date(imp.created_at).toLocaleDateString()}
                 </p>
