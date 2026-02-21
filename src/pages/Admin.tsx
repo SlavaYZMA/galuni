@@ -119,9 +119,17 @@ export default function Admin() {
   const mono = "'JetBrains Mono', monospace";
   const pink = "hsl(323,100%,50%)";
 
+  // Стили для принудительного возврата системного курсора на страницах админки
+  const cursorStyles = `
+    *, body { cursor: auto !important; }
+    input, textarea { cursor: text !important; }
+    button, a, label, .clickable-div { cursor: pointer !important; }
+  `;
+
   if (!session) {
     return (
       <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "hsl(0,0%,96%)" }}>
+        <style>{cursorStyles}</style>
         <motion.form
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -146,7 +154,7 @@ export default function Admin() {
 
           {authError && <p style={{ fontFamily: mono, fontSize: "0.55rem", color: pink }}>{authError}</p>}
 
-          <button type="submit" style={{ fontFamily: mono, fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", padding: "1rem", background: "hsl(0,0%,0%)", color: "hsl(0,0%,96%)", border: "none", cursor: "none" }}>
+          <button type="submit" style={{ fontFamily: mono, fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", padding: "1rem", background: "hsl(0,0%,0%)", color: "hsl(0,0%,96%)", border: "none" }}>
             {t("admin.signin")}
           </button>
         </motion.form>
@@ -156,6 +164,7 @@ export default function Admin() {
 
   return (
     <div style={{ minHeight: "100vh", background: "hsl(0,0%,96%)", padding: "4rem" }}>
+      <style>{cursorStyles}</style>
       <div style={{ maxWidth: "800px", margin: "0 auto" }}>
         {/* Header */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "3rem", borderBottom: "1px solid hsl(0,0%,88%)", paddingBottom: "1.5rem" }}>
@@ -163,7 +172,7 @@ export default function Admin() {
             <p style={{ fontFamily: mono, fontSize: "0.6rem", letterSpacing: "0.3em", color: pink }}>{t("admin.login")}</p>
             <h1 style={{ fontFamily: mono, fontSize: "1.5rem", fontWeight: 800 }}>{t("admin.title")}</h1>
           </div>
-          <button data-hover onClick={handleLogout} style={{ fontFamily: mono, fontSize: "0.55rem", letterSpacing: "0.15em", color: "hsl(0,0%,50%)", background: "none", border: "1px solid hsl(0,0%,88%)", padding: "0.5rem 1rem", cursor: "none" }}>
+          <button onClick={handleLogout} style={{ fontFamily: mono, fontSize: "0.55rem", letterSpacing: "0.15em", color: "hsl(0,0%,50%)", background: "none", border: "1px solid hsl(0,0%,88%)", padding: "0.5rem 1rem" }}>
             {t("admin.logout")}
           </button>
         </div>
@@ -186,8 +195,8 @@ export default function Admin() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
             <div>
               <label style={{ fontFamily: mono, fontSize: "0.5rem", letterSpacing: "0.2em", color: "hsl(0,0%,50%)" }}>{t("admin.shadow")}</label>
-              <div data-hover onClick={() => shadowRef.current?.click()}
-                style={{ border: "1px dashed hsl(0,0%,78%)", height: "100px", display: "flex", alignItems: "center", justifyContent: "center", cursor: "none", marginTop: "0.25rem", overflow: "hidden" }}>
+              <div className="clickable-div" onClick={() => shadowRef.current?.click()}
+                style={{ border: "1px dashed hsl(0,0%,78%)", height: "100px", display: "flex", alignItems: "center", justifyContent: "center", marginTop: "0.25rem", overflow: "hidden" }}>
                 {shadowFile ? (
                   <img src={URL.createObjectURL(shadowFile)} alt="shadow" style={{ width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(80%)" }} />
                 ) : (
@@ -198,8 +207,8 @@ export default function Admin() {
             </div>
             <div>
               <label style={{ fontFamily: mono, fontSize: "0.5rem", letterSpacing: "0.2em", color: "hsl(0,0%,50%)" }}>{t("admin.result")}</label>
-              <div data-hover onClick={() => resultRef.current?.click()}
-                style={{ border: "1px dashed hsl(0,0%,78%)", height: "100px", display: "flex", alignItems: "center", justifyContent: "center", cursor: "none", marginTop: "0.25rem", overflow: "hidden" }}>
+              <div className="clickable-div" onClick={() => resultRef.current?.click()}
+                style={{ border: "1px dashed hsl(0,0%,78%)", height: "100px", display: "flex", alignItems: "center", justifyContent: "center", marginTop: "0.25rem", overflow: "hidden" }}>
                 {resultFile ? (
                   <img src={URL.createObjectURL(resultFile)} alt="result" style={{ width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(80%)" }} />
                 ) : (
@@ -213,7 +222,7 @@ export default function Admin() {
           {message && <p style={{ fontFamily: mono, fontSize: "0.55rem", color: pink, letterSpacing: "0.15em" }}>{message}</p>}
 
           <button type="submit" disabled={uploading || !shadowFile || !resultFile || !title}
-            style={{ fontFamily: mono, fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", padding: "1rem", background: uploading ? "hsl(0,0%,80%)" : "hsl(0,0%,0%)", color: "hsl(0,0%,96%)", border: "none", cursor: "none", transition: "background 0.2s" }}>
+            style={{ fontFamily: mono, fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", padding: "1rem", background: uploading ? "hsl(0,0%,80%)" : "hsl(0,0%,0%)", color: "hsl(0,0%,96%)", border: "none", transition: "background 0.2s" }}>
             {uploading ? t("admin.uploading") : t("admin.submit")}
           </button>
         </form>
@@ -232,8 +241,8 @@ export default function Admin() {
                   <p style={{ fontFamily: mono, fontSize: "0.65rem", fontWeight: 700 }}>{imp.title}</p>
                   <p style={{ fontFamily: mono, fontSize: "0.5rem", color: "hsl(0,0%,50%)" }}>{new Date(imp.created_at).toLocaleDateString()}</p>
                 </div>
-                <button data-hover onClick={() => handleDelete(imp.id)}
-                  style={{ fontFamily: mono, fontSize: "0.5rem", letterSpacing: "0.15em", color: pink, background: "none", border: "1px solid " + pink, padding: "0.3rem 0.6rem", cursor: "none" }}>
+                <button onClick={() => handleDelete(imp.id)}
+                  style={{ fontFamily: mono, fontSize: "0.5rem", letterSpacing: "0.15em", color: pink, background: "none", border: "1px solid " + pink, padding: "0.3rem 0.6rem" }}>
                   {t("admin.delete")}
                 </button>
               </div>
