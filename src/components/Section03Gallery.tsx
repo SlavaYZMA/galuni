@@ -119,7 +119,8 @@ export default function Section03Gallery() {
                   src={imp.shadow_image_url}
                   alt={`${imp.title} — shadow`}
                   style={{
-                    width: "100%", height: "400px",
+                    width: "100%", 
+                    aspectRatio: "9 / 16",
                     objectFit: "cover",
                     filter: "grayscale(100%) contrast(1.1)",
                   }}
@@ -140,7 +141,8 @@ export default function Section03Gallery() {
                   src={imp.result_image_url}
                   alt={`${imp.title} — result`}
                   style={{
-                    width: "100%", height: "400px",
+                    width: "100%", 
+                    aspectRatio: "9 / 16",
                     objectFit: "cover",
                     filter: "grayscale(60%) contrast(1.05)",
                   }}
