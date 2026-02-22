@@ -78,8 +78,8 @@ export const translations: Record<Lang, Record<string, string>> = {
     "admin.no_imprints": "NO IMPRINTS YET",
   },
   ru: {
-    "hero.title_1": "ВЫ",
-    "hero.title_1_accent": "ЧИСЛ",
+    "hero.title_1": "ВЫЧИСЛ",
+    "hero.title_1_accent": "ЕННАЯ",
     "hero.title_2": "ТЕЛ",
     "hero.title_2_accent": "ЕСН",
     "hero.title_2_end": "ОСТЬ",
@@ -148,8 +148,8 @@ export const translations: Record<Lang, Record<string, string>> = {
     "admin.no_imprints": "ОТПЕЧАТКОВ ПОКА НЕТ",
   },
   de: {
-    "hero.title_1": "BERECHNETE",
-    "hero.title_1_accent": "",
+    "hero.title_1": "BERE",
+    "hero.title_1_accent": "CHNETE",
     "hero.title_2": "KÖRPER",
     "hero.title_2_accent": "LICH",
     "hero.title_2_end": "KEIT",
