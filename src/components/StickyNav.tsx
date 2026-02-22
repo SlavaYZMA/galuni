@@ -4,9 +4,9 @@ import LanguageSwitcher from "./LanguageSwitcher";
 
 const sections = [
   { id: "hero", label: "00" },
-  { id: "trace", label: "01" },
-  { id: "theory", label: "02" },
-  { id: "gallery", label: "03" },
+  { id: "gallery", label: "01" },
+  { id: "trace", label: "02" },
+  { id: "theory", label: "03" },
 ];
 
 export default function StickyNav() {
