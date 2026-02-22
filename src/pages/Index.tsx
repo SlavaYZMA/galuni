@@ -5,6 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import Section01Trace from "@/components/Section01Trace";
 import Section02Theory from "@/components/Section02Theory";
 import Section03Gallery from "@/components/Section03Gallery";
+import SurfaceCanvas from "@/components/SurfaceCanvas";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const fadeUp = {
@@ -38,6 +39,7 @@ const Index = () => {
       <motion.div {...fadeUp}><Section03Gallery /></motion.div>
       <motion.div {...fadeUp}><Section01Trace /></motion.div>
       <motion.div {...fadeUp}><Section02Theory /></motion.div>
+      <motion.div {...fadeUp}><SurfaceCanvas /></motion.div>
 
       <footer style={{
         borderTop: "1px solid hsl(0,0%,88%)",
