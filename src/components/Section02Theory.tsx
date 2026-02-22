@@ -3,14 +3,16 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const termKeys = [
-  { id: "abject", index: "T—01", labelKey: "abject.label", defKey: "abject.def", subKey: "abject.sub" },
-  { id: "datasweat", index: "T—02", labelKey: "datasweat.label", defKey: "datasweat.def", subKey: "datasweat.sub" },
-  { id: "plasticghost", index: "T—03", labelKey: "plasticghost.label", defKey: "plasticghost.def", subKey: "plasticghost.sub" },
+  { id: "term1", index: "T—01", labelKey: "term1.label", defKey: "term1.def" },
+  { id: "term2", index: "T—02", labelKey: "term2.label", defKey: "term2.def" },
+  { id: "term3", index: "T—03", labelKey: "term3.label", defKey: "term3.def" },
+  { id: "term4", index: "T—04", labelKey: "term4.label", defKey: "term4.def" },
+  { id: "term5", index: "T—05", labelKey: "term5.label", defKey: "term5.def" },
 ];
 
 export default function Section02Theory() {
   const { t } = useLanguage();
-  const [open, setOpen] = useState<string | null>("abject");
+  const [open, setOpen] = useState<string | null>("term1"); // Открываем первый термин по умолчанию
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-50px" });
 
@@ -76,7 +78,6 @@ export default function Section02Theory() {
                       <div />
                       <div>
                         <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.8rem", lineHeight: 1.8, color: "hsl(0,0%,10%)", marginBottom: "1rem" }}>{t(term.defKey)}</p>
-                        <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.7rem", lineHeight: 1.7, color: "hsl(0,0%,40%)", borderLeft: "2px solid hsl(0,0%,88%)", paddingLeft: "1rem" }}>{t(term.subKey)}</p>
                       </div>
                     </div>
                   </motion.div>
