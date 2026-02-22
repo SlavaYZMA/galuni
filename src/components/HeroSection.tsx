@@ -8,10 +8,10 @@ export default function HeroSection() {
     <section
       id="hero"
       style={{
-        minHeight: "100vh",
+        minHeight: "50vh",
         display: "flex", flexDirection: "column",
         justifyContent: "center", alignItems: "center",
-        padding: "4rem 2rem",
+        padding: "3rem 2rem 2rem",
         borderBottom: "1px solid hsl(0,0%,88%)",
         position: "relative", overflow: "hidden",
       }}
