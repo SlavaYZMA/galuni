@@ -8,6 +8,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     "hero.title_1_end": "D",
     "hero.title_2": "CORPO",
     "hero.title_2_accent": "REALITY",
+    "hero.title_2_end": "",
     "hero.ref": "SPECIMEN_REF: CC-2025 / SHADOW_ARCHIVE",
     "hero.status": "STATUS: ACTIVE",
     "hero.subtitle": "CALCULATED CORPOREALITY / 2025",
@@ -82,8 +83,10 @@ export const translations: Record<Lang, Record<string, string>> = {
     "admin.no_imprints": "NO IMPRINTS YET",
   },
   ru: {
+    // Hero
     "hero.title_1": "ВЫЧИСЛ",
     "hero.title_1_accent": "ЕННАЯ",
+    "hero.title_1_end": "", // Добавлено: пустая строка, чтобы не выводился ключ
     "hero.title_2": "ТЕЛ",
     "hero.title_2_accent": "ЕСН",
     "hero.title_2_end": "ОСТЬ",
@@ -156,8 +159,10 @@ export const translations: Record<Lang, Record<string, string>> = {
     "admin.no_imprints": "ОТПЕЧАТКОВ ПОКА НЕТ",
   },
   de: {
+    // Hero
     "hero.title_1": "BERE",
     "hero.title_1_accent": "CHNETE",
+    "hero.title_1_end": "", // Добавлено
     "hero.title_2": "KÖRPER",
     "hero.title_2_accent": "LICH",
     "hero.title_2_end": "KEIT",
@@ -170,7 +175,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     "s01.label": "ABSCHNITT 01 / MANIFEST",
     "s01.title_1": "DIGITALER",
     "s01.title_2": "KÖRPER",
-    "s01.body": "In einer Ära totaler Sichtbarkeit wird selbst ein Schatten zum Objekt der Kontrolle. Heute wird der Akt der Beobachtung an Maschinencode delegiert, doch der Algorithmus sucht nicht nach der verborgenen Wahrheit — er produziert seine eigene Realität. Konfrontiert mit einem Datendefizit in Form einer flachen Silhouette greift die KI auf den latenten Raum zurück — ein kolossales Archiv digitalisierter menschlicher Formen und Texturen. In algorithmische Halluzinationen verfallend, rekonstruiert die Maschine gewaltsam Volumen, wo keines ist. Das Subjekt wird dabei auf den Zustand digitaler Biomasse reduziert — Rohmaterial, aus dem das System wie Frankenstein eine algorithmische Schimäre (Simulakrum) zusammennäht. Dieses synthetische Konstrukt hat nichts mit Ihrer wahren Anatomie gemein, aber für die Maschine wird es realer als Sie selbst. Das Projekt buchstabiert die grundlegende Mechanik digitaler Gewalt aus. Der einfache Akt, einen Schatten auf eine Wand zu werfen, verwandelt sich in einen Akt nicht-konsensueller Entblößung. Unsere informationelle Verwundbarkeit wird vom System ausgenutzt: Der algorithmische Blick, der historisch als patriarchalisch und objektivierend geformt wurde, zwingt dem Schatten gewaltsam Fleisch auf. Die Praktiken der Erstellung von Deepfakes und der Generation nackter Körper sind kein Systemfehler, sondern eine direkte Folge dieses neuen technologischen Paradigmas. Softwarecode entwickelt sich weiter, automatisiert die Mechanismen der Gewalt und verwandelt unsere physische Präsenz in eine Waffe gegen uns selbst.",
+    "s01.body": "In einer Ära totaler Sichtbarkeit wird selbst ein Schatten zum Objekt der Kontrolle. Heute wird der Akt der Beobachtung an Maschinencode delegiert, doch der Algorithmus sucht nicht nach der verborgenen Wahrheit — er produziert seine eigene Realität. Konfrontiert mit einem Datendefizit in Form einer flachen Silhouette greift die KI auf den latenten Raum zurück — ein kolossales Archiv digitalisierter menschlicher Formen und Texturen. In algorithmische Halluzinationen verfallend, rekonstruiert die Maschine gewаltsam Volumen, wo keines ist. Das Subjekt wird dabei auf den Zustand digitaler Biomasse reduziert — Rohmaterial, aus dem das System wie Frankenstein eine algorithmische Schimäre (Simulakrum) zusammennäht. Dieses synthetische Konstrukt hat nichts mit Ihrer wahren Anatomie gemein, aber für die Maschine wird es realer als Sie selbst. Das Projekt buchstabiert die grundlegende Mechanik digitaler Gewalt aus. Der einfache Akt, einen Schatten auf eine Wand zu werfen, verwandelt sich in einen Akt nicht-konsensueller Entblößung. Unsere informationelle Verwundbarkeit wird vom System ausgenutzt: Der algorithmische Blick, der historisch als patriarchalisch und objektivierend geformt wurde, zwingt dem Schatten gewaltsam Fleisch auf. Die Praktiken der Erstellung von Deepfakes und der Generierung nackter Körper sind kein Systemfehler, sondern eine direkte Folge dieses neuen technologischen Paradigmas. Softwarecode entwickelt sich weiter, automatisiert die Mechanismen der Gewalt und verwandelt unsere physisче Präsenz in eine Waffe gegen uns selbst.",
     "s01.body_1": "In einer Ära totaler Sichtbarkeit wird selbst ein Schatten zum Objekt der Kontrolle. Heute wird der Akt der Beobachtung an Maschinencode delegiert, doch der Algorithmus sucht nicht nach der verborgenen Wahrheit — er produziert seine eigene Realität.",
     "s01.body_2": "Konfrontiert mit einem Datendefizit in Form einer flachen Silhouette greift die KI auf den latenten Raum zurück — ein kolossales Archiv digitalisierter menschlicher Formen und Texturen. In algorithmische Halluzinationen verfallend, rekonstruiert die Maschine gewaltsam Volumen, wo keines ist.",
     "s01.body_3": "Das Subjekt wird dabei auf den Zustand digitaler Biomasse reduziert — Rohmaterial, aus dem das System wie Frankenstein eine algorithmische Schimäre zusammennäht. Dieses synthetische Konstrukt hat nothing mit Ihrer wahren Anatomie gemein, aber für die Maschine wird es realer als Sie selbst.",
