@@ -3,32 +3,38 @@ export type Lang = "en" | "ru" | "de";
 export const translations: Record<Lang, Record<string, string>> = {
   en: {
     // Hero
-    "hero.ref": "SPECIMEN_REF: AA-2024 / SHADOW_ARCHIVE",
+    "hero.ref": "SPECIMEN_REF: CC-2025 / SHADOW_ARCHIVE",
     "hero.status": "STATUS: ACTIVE",
-    "hero.subtitle": "ALGORITHMIC ABJECTION / 2024",
+    "hero.subtitle": "CALCULATED CORPOREALITY / 2025",
     "hero.scroll": "↓ SCROLL TO ENTER ARCHIVE",
     "hero.canvas": "SURFACE_DEFORMATION_MODULE / MOVE CURSOR",
 
-    // Section 01
-    "s01.label": "SECTION 01 / THE TRACE",
-    "s01.title_1": "MATERI",
-    "s01.title_2": "ALITY",
-    "s01.body": "The body as data. The skin as interface. Each algorithmic pass leaves residue — not information, but the ghost of information. What the machine sees is not the body, but the body's translation into numbers, then back into synthetic shadow.",
+    // Section 01 - Manifesto
+    "s01.label": "SECTION 01 / MANIFESTO",
+    "s01.title_1": "DIGITAL",
+    "s01.title_2": "BODY",
+    "s01.body": "In an era of total visibility, even a shadow becomes an object of control. Today, the act of observation is delegated to machine code, yet the algorithm does not seek a hidden truth — it produces its own reality. Faced with a data deficit in the form of a flat silhouette, AI turns to the latent space — a colossal archive of digitized human forms and textures. Falling into algorithmic hallucination, the machine forcibly reconstructs volume where there is none. The subject is reduced to the state of digital biomass — raw material from which the system, like Frankenstein, stitches together an algorithmic chimera (simulacrum). This synthetic construct has nothing in common with your genuine anatomy, but to the machine, it becomes more real than you are. The project literalizes the basic mechanics of digital violence. The simple act of casting a shadow on a wall transforms into an act of non-consensual exposure. Our informational vulnerability is exploited by the system: the algorithmic gaze, historically shaped as patriarchal and objectifying, forcibly imposes flesh onto the shadow. The practices of creating deepfakes and generating naked bodies are not a system failure, but a direct consequence of this new technological paradigm. Software code evolves, automating the mechanisms of violence and turning our physical presence into a weapon against ourselves.",
     "s01.scan": "SCANNING...",
 
-    // Section 02
+    // Section 02 - Terms
     "s02.label": "SECTION 02 / THEORY",
     "s02.title_1": "TERM",
     "s02.title_2": "S",
-    "abject.label": "ABJECT",
-    "abject.def": "Julia Kristeva's abject: that which disturbs identity, system, order. What does not respect borders, positions, rules. The in-between, the ambiguous, the composite.",
-    "abject.sub": "The body that exceeds its own definition. The algorithm that produces shadow from numbers. Neither art nor biology — something anterior to both.",
-    "datasweat.label": "DATA SWEAT",
-    "datasweat.def": "The biological residue of computation. What leaks between model weights — the warmth that should not be there. An error that became a material.",
-    "datasweat.sub": "When the diffusion model encounters ambiguity in human anatomy, it produces artifacts that resemble sweat, fluid, the excess of organic process.",
-    "plasticghost.label": "DIGITAL SHADOW",
-    "plasticghost.def": "The synthetic silhouette that passes through systems without touching them. Generated but not born. Present but not existing. An imprint without pressure.",
-    "plasticghost.sub": "The AI-rendered body occupies visual space without physical consequence. It haunts the archive as a dark imprint — the uncanny made sterile.",
+    
+    "term1.label": "ABJECTION (DIGITAL REJECTION)",
+    "term1.def": "The process of turning a living human into an alien object. Your shadow is part of you, but when the algorithm forcibly reconstructs a 3D model from it, this double ceases to be you. It becomes a terrifying 'data cadaver'. This confronts the viewer with the fact that the system sees us not as individuals, but as raw biomass devoid of humanity.",
+    
+    "term2.label": "ALGORITHMIC VOYEURISM",
+    "term2.def": "A system of total surveillance where observation is automated. Importantly: the machine has no desires; there is always a human behind its architecture. Developers and corporations encoded the 'right' to analyze and classify other people's bodies. Algorithmic voyeurism is a patriarchal and objectifying gaze translated into mathematics, spying on you by the will of its creators.",
+    
+    "term3.label": "HALLUCINATION MECHANISM",
+    "term3.def": "A technical glitch turned into a method. When a neural network receives a flat shadow (a silhouette without depth details), it lacks the data for an accurate response. Instead of stopping, the algorithm mathematically 'completes' reality. It randomly stitches together fragments of hundreds of thousands of other bodies, creating unnatural volume and hallucinating flesh where there was only emptiness.",
+    
+    "term4.label": "LATENT SPACE",
+    "term4.def": "A hidden multidimensional archive on which the neural network was trained. It is a colossal database containing millions of human forms, poses, and textures dismantled into pixels. This mathematical 'graveyard' of images is the reservoir from which the algorithm blindly draws foreign fragments to stretch over the contour of your shadow.",
+    
+    "term5.label": "NON-CONSENSUALITY",
+    "term5.def": "The foundational principle of modern machine vision systems. Data is extracted, processed, and sexualized (as in deepfakes) without the conscious consent of the subject. Your mere presence in the camera's field of view is automatically interpreted by the system's architecture as consent to a digital autopsy.",
 
     // Section 03 - Archive
     "s03.label": "SECTION 03 / THE ARCHIVE",
@@ -39,16 +45,15 @@ export const translations: Record<Lang, Record<string, string>> = {
     "s03.result": "FINAL MANIFESTATION",
 
     // Footer
-    "footer.left": "ALGORITHMIC ABJECTION / 2024",
+    "footer.left": "CALCULATED CORPOREALITY / 2025",
     "footer.right": "SHADOW ARCHIVE v2.0.0",
 
-    // Nav
+    // Nav & Admin UI
     "nav.hero": "00",
     "nav.trace": "01",
     "nav.theory": "02",
     "nav.archive": "03",
 
-    // Admin
     "admin.title": "ADMIN PANEL",
     "admin.login": "AUTHENTICATE",
     "admin.email": "EMAIL",
@@ -68,30 +73,36 @@ export const translations: Record<Lang, Record<string, string>> = {
     "admin.no_imprints": "NO IMPRINTS YET",
   },
   ru: {
-    "hero.ref": "ЭКЗЕМПЛЯР: АА-2024 / АРХИВ_ТЕНЕЙ",
+    "hero.ref": "ЭКЗЕМПЛЯР: CC-2025 / АРХИВ_ТЕНЕЙ",
     "hero.status": "СТАТУС: АКТИВЕН",
-    "hero.subtitle": "АЛГОРИТМИЧЕСКАЯ АБЪЕКЦИЯ / 2024",
+    "hero.subtitle": "ВЫЧИСЛЕННАЯ ТЕЛЕСНОСТЬ / 2025",
     "hero.scroll": "↓ ПРОКРУТИТЕ ДЛЯ ВХОДА В АРХИВ",
     "hero.canvas": "МОДУЛЬ_ДЕФОРМАЦИИ_ПОВЕРХНОСТИ / ДВИГАЙТЕ КУРСОР",
 
-    "s01.label": "РАЗДЕЛ 01 / СЛЕД",
-    "s01.title_1": "МАТЕРИ",
-    "s01.title_2": "АЛЬНОСТЬ",
-    "s01.body": "Тело как данные. Кожа как интерфейс. Каждый алгоритмический проход оставляет осадок — не информацию, а призрак информации. То, что видит машина — не тело, а его перевод в числа, а затем обратно — в синтетическую тень.",
+    "s01.label": "РАЗДЕЛ 01 / МАНИФЕСТ",
+    "s01.title_1": "ЦИФРОВОЕ",
+    "s01.title_2": "ТЕЛО",
+    "s01.body": "В эпоху тотальной видимости даже тень становится объектом контроля. Сегодня акт наблюдения делегирован машинному коду, однако алгоритм не ищет скрытую истину — он производит собственную реальность. Столкнувшись с дефицитом данных в виде плоского силуэта, ИИ обращается к латентному пространству — колоссальному архиву оцифрованных человеческих форм и текстур. Впадая в алгоритмическую галлюцинацию, машина принудительно реконструирует объем там, где его нет. Субъект при этом низводится до состояния цифровой биомассы — сырья, из которого система, как Франкенштейн, сшивает алгоритмическую химеру (симулякр). Этот синтетический конструкт не имеет ничего общего с вашей подлинной анатомией, но для машины он становится реальнее вас самих. Проект буквализирует базовую механику цифрового насилия. Обычное отбрасывание тени на стену трансформируется в акт неконсенсуального обнажения. Наша информационная уязвимость эксплуатируется системой: алгоритмический взгляд, исторически сформированный как патриархальный и объективирующий, насильно навязывает тени плоть. Практики создания дипфейков и генерации обнаженных тел — это не сбой системы, а прямое следствие этой новой технологической парадигмы. Программный код эволюционирует, автоматизируя механизмы насилия и превращая наше физическое присутствие в оружие против нас самих.",
     "s01.scan": "СКАНИРОВАНИЕ...",
 
     "s02.label": "РАЗДЕЛ 02 / ТЕОРИЯ",
     "s02.title_1": "ТЕРМ",
     "s02.title_2": "ИНЫ",
-    "abject.label": "АБЪЕКТ",
-    "abject.def": "Абъект Юлии Кристевой: то, что нарушает идентичность, систему, порядок. То, что не уважает границ, позиций, правил. Промежуточное, двусмысленное, составное.",
-    "abject.sub": "Тело, превышающее собственное определение. Алгоритм, производящий тень из чисел. Ни искусство, ни биология — нечто предшествующее обоим.",
-    "datasweat.label": "ЦИФРОВОЙ ПОТ",
-    "datasweat.def": "Биологический остаток вычислений. То, что просачивается между весами модели — тепло, которого не должно быть. Ошибка, ставшая материалом.",
-    "datasweat.sub": "Когда диффузионная модель сталкивается с двусмысленностью человеческой анатомии, она производит артефакты, напоминающие пот, жидкость, избыток органического процесса.",
-    "plasticghost.label": "ЦИФРОВАЯ ТЕНЬ",
-    "plasticghost.def": "Синтетический силуэт, проходящий сквозь системы, не касаясь их. Сгенерированный, но не рождённый. Присутствующий, но не существующий. Отпечаток без давления.",
-    "plasticghost.sub": "ИИ-сгенерированное тело занимает визуальное пространство без физических последствий. Оно преследует архив как тёмный отпечаток — жуткое, ставшее стерильным.",
+    
+    "term1.label": "АБЪЕКЦИЯ (ЦИФРОВОЕ ОТТОРЖЕНИЕ)",
+    "term1.def": "Процесс превращения живого человека в чужеродный объект. Ваша тень — это часть вас, но когда алгоритм принудительно реконструирует из неё 3D-модель, этот двойник перестает быть вами. Он становится пугающим «информационным трупом». Это столкновение зрителя с тем фактом, что система видит в нас не личность, а лишь сырьевую биомассу, лишенную человечности.",
+    
+    "term2.label": "АЛГОРИТМИЧЕСКИЙ ВУАЙЕРИЗМ",
+    "term2.def": "Система тотального надзора, в которой автоматизирован процесс наблюдения. Важно понимать: машина не обладает желаниями, за её архитектурой всегда стоит человек. Это разработчики и корпорации заложили в код «право» анализировать и классифицировать чужие тела. Алгоритмический вуайеризм — это переведенный в математику патриархальный и объективирующий взгляд, который подсматривает за вами по воле своих создателей.",
+    
+    "term3.label": "МЕХАНИЗМ ГАЛЛЮЦИНАЦИИ",
+    "term3.def": "Технический сбой, превращенный в метод. Когда нейросеть получает на вход плоскую тень (силуэт без деталей глубины), ей не хватает данных для точного ответа. Вместо того чтобы остановиться, алгоритм математически «достраивает» реальность. Он случайным образом сшивает фрагменты сотен тысяч других тел, создавая неестественный объем и галлюцинируя плоть там, где была только пустота.",
+    
+    "term4.label": "ЛАТЕНТНОЕ ПРОСТРАНСТВО",
+    "term4.def": "Скрытый многомерный архив, на котором обучалась нейросеть. Это колоссальная база данных, содержащая миллионы разобранных на пиксели человеческих форм, поз и текстур. Это математическое «кладбище» изображений является тем самым резервуаром, из которого алгоритм слепо черпает чужие фрагменты, чтобы натянуть их на контур вашей тени.",
+    
+    "term5.label": "НЕКОНСЕНСУАЛЬНОСТЬ",
+    "term5.def": "Базовый принцип работы современных систем машинного зрения. Данные извлекаются, обрабатываются и сексуализируются (как в случае с дипфейками) без осознанного согласия субъекта. Само ваше присутствие в поле зрения камеры автоматически трактуется архитектурой системы как согласие на цифровое вскрытие.",
 
     "s03.label": "РАЗДЕЛ 03 / АРХИВ",
     "s03.title_1": "АРХИВ",
@@ -100,7 +111,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     "s03.source": "ИСХОДНАЯ ТЕНЬ",
     "s03.result": "ФИНАЛЬНОЕ ПРОЯВЛЕНИЕ",
 
-    "footer.left": "АЛГОРИТМИЧЕСКАЯ АБЪЕКЦИЯ / 2024",
+    "footer.left": "ВЫЧИСЛЕННАЯ ТЕЛЕСНОСТЬ / 2025",
     "footer.right": "АРХИВ ТЕНЕЙ v2.0.0",
 
     "nav.hero": "00",
@@ -127,30 +138,36 @@ export const translations: Record<Lang, Record<string, string>> = {
     "admin.no_imprints": "ОТПЕЧАТКОВ ПОКА НЕТ",
   },
   de: {
-    "hero.ref": "PROBEN_REF: AA-2024 / SCHATTEN_ARCHIV",
+    "hero.ref": "PROBEN_REF: CC-2025 / SCHATTEN_ARCHIV",
     "hero.status": "STATUS: AKTIV",
-    "hero.subtitle": "ALGORITHMISCHE ABJEKTION / 2024",
+    "hero.subtitle": "BERECHNETE KÖRPERLICHKEIT / 2025",
     "hero.scroll": "↓ SCROLLEN ZUM ARCHIV",
     "hero.canvas": "OBERFLÄCHENDEFORMATIONSMODUL / CURSOR BEWEGEN",
 
-    "s01.label": "ABSCHNITT 01 / DIE SPUR",
-    "s01.title_1": "MATERI",
-    "s01.title_2": "ALITÄT",
-    "s01.body": "Der Körper als Daten. Die Haut als Schnittstelle. Jeder algorithmische Durchlauf hinterlässt Rückstände — keine Information, sondern den Geist der Information. Was die Maschine sieht, ist nicht der Körper, sondern seine Übersetzung in Zahlen und zurück in synthetischen Schatten.",
+    "s01.label": "ABSCHNITT 01 / MANIFEST",
+    "s01.title_1": "DIGITALER",
+    "s01.title_2": "KÖRPER",
+    "s01.body": "In einer Ära totaler Sichtbarkeit wird selbst ein Schatten zum Objekt der Kontrolle. Heute wird der Akt der Beobachtung an Maschinencode delegiert, doch der Algorithmus sucht nicht nach der verborgenen Wahrheit — er produziert seine eigene Realität. Konfrontiert mit einem Datendefizit in Form einer flachen Silhouette greift die KI auf den latenten Raum zurück — ein kolossales Archiv digitalisierter menschlicher Formen und Texturen. In algorithmische Halluzinationen verfallend, rekonstruiert die Maschine gewaltsam Volumen, wo keines ist. Das Subjekt wird dabei auf den Zustand digitaler Biomasse reduziert — Rohmaterial, aus dem das System wie Frankenstein eine algorithmische Schimäre (Simulakrum) zusammennäht. Dieses synthetische Konstrukt hat nichts mit Ihrer wahren Anatomie gemein, aber für die Maschine wird es realer als Sie selbst. Das Projekt buchstabiert die grundlegende Mechanik digitaler Gewalt aus. Der einfache Akt, einen Schatten auf eine Wand zu werfen, verwandelt sich in einen Akt nicht-konsensueller Entblößung. Unsere informationelle Verwundbarkeit wird vom System ausgenutzt: Der algorithmische Blick, der historisch als patriarchalisch und objektivierend geformt wurde, zwingt dem Schatten gewaltsam Fleisch auf. Die Praktiken der Erstellung von Deepfakes und der Generierung nackter Körper sind kein Systemfehler, sondern eine direkte Folge dieses neuen technologischen Paradigmas. Softwarecode entwickelt sich weiter, automatisiert die Mechanismen der Gewalt und verwandelt unsere physische Präsenz in eine Waffe gegen uns selbst.",
     "s01.scan": "SCANNEN...",
 
     "s02.label": "ABSCHNITT 02 / THEORIE",
     "s02.title_1": "BEGRI",
     "s02.title_2": "FFE",
-    "abject.label": "ABJEKT",
-    "abject.def": "Julia Kristevas Abjekt: das, was Identität, System, Ordnung stört. Was Grenzen, Positionen, Regeln nicht respektiert. Das Dazwischen, das Mehrdeutige, das Zusammengesetzte.",
-    "abject.sub": "Der Körper, der seine eigene Definition übersteigt. Der Algorithmus, der Schatten aus Zahlen erzeugt. Weder Kunst noch Biologie — etwas, das beiden vorausgeht.",
-    "datasweat.label": "DATENSCHWEISS",
-    "datasweat.def": "Der biologische Rückstand der Berechnung. Was zwischen den Modellgewichten durchsickert — die Wärme, die nicht sein sollte. Ein Fehler, der zum Material wurde.",
-    "datasweat.sub": "Wenn das Diffusionsmodell auf Mehrdeutigkeit in der menschlichen Anatomie trifft, erzeugt es Artefakte, die Schweiß, Flüssigkeit, den Überschuss organischer Prozesse ähneln.",
-    "plasticghost.label": "DIGITALER SCHATTEN",
-    "plasticghost.def": "Die synthetische Silhouette, die durch Systeme gleitet, ohne sie zu berühren. Generiert, aber nicht geboren. Anwesend, aber nicht existierend. Ein Abdruck ohne Druck.",
-    "plasticghost.sub": "Der KI-gerenderte Körper nimmt visuellen Raum ein ohne physische Konsequenz. Er verfolgt das Archiv als dunkler Abdruck — das Unheimliche, steril gemacht.",
+    
+    "term1.label": "ABJEKTION (DIGITALE ABLEHNUNG)",
+    "term1.def": "Der Prozess, einen lebenden Menschen in ein fremdes Objekt zu verwandeln. Ihr Schatten ist ein Teil von Ihnen, aber wenn der Algorithmus gewaltsam ein 3D-Modell daraus rekonstruiert, hört dieser Doppelgänger auf, Sie zu sein. Er wird zu einer erschreckenden 'Datenleiche'. Dies konfrontiert den Betrachter mit der Tatsache, dass das System in uns keine Individuen, sondern nur rohe Biomasse ohne Menschlichkeit sieht.",
+    
+    "term2.label": "ALGORITHMISCHER VOYEURISMUS",
+    "term2.def": "Ein System totaler Überwachung, in dem der Beobachtungsprozess automatisiert ist. Wichtig zu verstehen: Die Maschine hat keine Wünsche; hinter ihrer Architektur steht immer ein Mensch. Entwickler und Konzerne haben das 'Recht', fremde Körper zu analysieren und zu klassifizieren, in den Code einprogrammiert. Algorithmischer Voyeurismus ist ein in Mathematik übersetzter patriarchalischer und objektivierender Blick, der Sie nach dem Willen seiner Schöpfer ausspioniert.",
+    
+    "term3.label": "HALLUZINATIONSMECHANISMUS",
+    "term3.def": "Ein technischer Fehler, der zur Methode wurde. Wenn ein neuronales Netzwerk einen flachen Schatten (eine Silhouette ohne Tiefendetails) erhält, fehlen ihm die Daten für eine genaue Antwort. Anstatt anzuhalten, 'vervollständigt' der Algorithmus die Realität mathematisch. Er näht zufällig Fragmente von Hunderttausenden anderer Körper zusammen, erzeugt unnatürliches Volumen und halluziniert Fleisch, wo nur Leere war.",
+    
+    "term4.label": "LATENTER RAUM",
+    "term4.def": "Ein verborgenes, mehrdimensionales Archiv, in dem das neuronale Netzwerk trainiert wurde. Es ist eine kolossale Datenbank, die Millionen von in Pixel zerlegten menschlichen Formen, Posen und Texturen enthält. Dieser mathematische 'Friedhof' von Bildern ist das Reservoir, aus dem der Algorithmus blind fremde Fragmente schöpft, um sie über die Kontur Ihres Schattens zu spannen.",
+    
+    "term5.label": "FEHLENDER KONSENS (NON-KONSENSUALITÄT)",
+    "term5.def": "Das Grundprinzip moderner maschineller Sichtsysteme. Daten werden extrahiert, verarbeitet und sexualisiert (wie bei Deepfakes), ohne die bewusste Zustimmung des Subjekts. Allein Ihre Anwesenheit im Sichtfeld der Kamera wird von der Systemarchitektur automatisch als Zustimmung zu einer digitalen Autopsie interpretiert.",
 
     "s03.label": "ABSCHNITT 03 / DAS ARCHIV",
     "s03.title_1": "ARCHIV",
@@ -159,7 +176,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     "s03.source": "QUELLSCHATTEN",
     "s03.result": "FINALE MANIFESTATION",
 
-    "footer.left": "ALGORITHMISCHE ABJEKTION / 2024",
+    "footer.left": "BERECHNETE KÖRPERLICHKEIT / 2025",
     "footer.right": "SCHATTENARCHIV v2.0.0",
 
     "nav.hero": "00",
