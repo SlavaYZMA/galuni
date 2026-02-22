@@ -113,9 +113,9 @@ export default function HeroSection() {
           {t("hero.subtitle")}
         </p>
         <h1 style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "clamp(2rem, 6vw, 7rem)", fontWeight: 800, lineHeight: 0.9, letterSpacing: "-0.03em", color: "hsl(0,0%,0%)", textTransform: "uppercase", maxWidth: "900px" }}>
-          ВЫ<span style={{ color: "hsl(323,100%,50%)" }}>ЧИСЛ</span>ЕННАЯ
+          {t("hero.title_1")}<span style={{ color: "hsl(323,100%,50%)" }}>{t("hero.title_1_accent")}</span>
           <br />
-          ТЕЛ<span style={{ color: "hsl(323,100%,50%)" }}>ЕСН</span>ОСТЬ
+          {t("hero.title_2")}<span style={{ color: "hsl(323,100%,50%)" }}>{t("hero.title_2_accent")}</span>{t("hero.title_2_end")}
         </h1>
       </motion.div>
 

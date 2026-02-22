@@ -3,6 +3,11 @@ export type Lang = "en" | "ru" | "de";
 export const translations: Record<Lang, Record<string, string>> = {
   en: {
     // Hero
+    "hero.title_1": "CALCUL",
+    "hero.title_1_accent": "ATED",
+    "hero.title_2": "CORPO",
+    "hero.title_2_accent": "REA",
+    "hero.title_2_end": "LITY",
     "hero.ref": "SPECIMEN_REF: CC-2025 / SHADOW_ARCHIVE",
     "hero.status": "STATUS: ACTIVE",
     "hero.subtitle": "CALCULATED CORPOREALITY / 2025",
@@ -73,6 +78,11 @@ export const translations: Record<Lang, Record<string, string>> = {
     "admin.no_imprints": "NO IMPRINTS YET",
   },
   ru: {
+    "hero.title_1": "ВЫ",
+    "hero.title_1_accent": "ЧИСЛ",
+    "hero.title_2": "ТЕЛ",
+    "hero.title_2_accent": "ЕСН",
+    "hero.title_2_end": "ОСТЬ",
     "hero.ref": "ЭКЗЕМПЛЯР: CC-2025 / АРХИВ_ТЕНЕЙ",
     "hero.status": "СТАТУС: АКТИВЕН",
     "hero.subtitle": "ВЫЧИСЛЕННАЯ ТЕЛЕСНОСТЬ / 2025",
@@ -138,6 +148,11 @@ export const translations: Record<Lang, Record<string, string>> = {
     "admin.no_imprints": "ОТПЕЧАТКОВ ПОКА НЕТ",
   },
   de: {
+    "hero.title_1": "BERECHNETE",
+    "hero.title_1_accent": "",
+    "hero.title_2": "KÖRPER",
+    "hero.title_2_accent": "LICH",
+    "hero.title_2_end": "KEIT",
     "hero.ref": "PROBEN_REF: CC-2025 / SCHATTEN_ARCHIV",
     "hero.status": "STATUS: AKTIV",
     "hero.subtitle": "BERECHNETE KÖRPERLICHKEIT / 2025",
