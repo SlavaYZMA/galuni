@@ -7,6 +7,7 @@ const sections = [
   { id: "gallery", label: "01" },
   { id: "trace", label: "02" },
   { id: "theory", label: "03" },
+  { id: "canvas", label: "04" },
 ];
 
 export default function StickyNav() {
