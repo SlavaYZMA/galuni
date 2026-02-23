@@ -81,6 +81,13 @@ export const translations: Record<Lang, Record<string, string>> = {
     "admin.manage": "MANAGE IMPRINTS",
     "admin.delete": "DELETE",
     "admin.no_imprints": "NO IMPRINTS YET",
+
+    "glossary.latentSpace": "A mathematical space where AI models store compressed representations of training data, such as human forms and textures.",
+    "glossary.hallucination": "A phenomenon where AI perceives patterns that don't exist, generating highly detailed but completely synthetic and false visual information.",
+    "glossary.biomass": "Human bodies reduced to raw, anonymized data points — a mere resource for algorithmic consumption and generation.",
+    "glossary.chimera": "A synthetic digital entity stitched together from fragments of thousands of different digitized bodies, having no single real-world prototype.",
+    "glossary.violence": "The non-consensual exploitation, alteration, or exposure of a person's digital identity and physical representation by algorithms.",
+    "glossary.deepfakes": "Synthetic media in which a person in an existing image or video is replaced with someone else's likeness, often used for non-consensual content.",
   },
   ru: {
     // Hero
@@ -157,6 +164,13 @@ export const translations: Record<Lang, Record<string, string>> = {
     "admin.manage": "УПРАВЛЕНИЕ ОТПЕЧАТКАМИ",
     "admin.delete": "УДАЛИТЬ",
     "admin.no_imprints": "ОТПЕЧАТКОВ ПОКА НЕТ",
+
+    "glossary.latentSpace": "Многомерное математическое пространство, в котором ИИ хранит сжатые образы и признаки всех данных, на которых он обучался.",
+    "glossary.hallucination": "Феномен, при котором ИИ 'видит' несуществующие закономерности, генерируя высокодетализированную, но полностью вымышленную визуальную информацию.",
+    "glossary.biomass": "Человеческое тело, низведенное до набора обезличенных данных — сырья для потребления и генерации алгоритмами.",
+    "glossary.chimera": "Синтетическая сущность, 'сшитая' алгоритмом из фрагментов тысяч разных оцифрованных тел, не имеющая реального прототипа.",
+    "glossary.violence": "Эксплуатация, изменение или обнажение цифровой идентичности и физического образа человека алгоритмами без его согласия.",
+    "glossary.deepfakes": "Синтетические медиа, в которых лицо или тело человека на фото/видео заменяется реалистичным изображением другого человека с помощью ИИ.",
   },
   de: {
     // Hero
@@ -233,5 +247,12 @@ export const translations: Record<Lang, Record<string, string>> = {
     "admin.manage": "ABDRÜCKE VERWALTEN",
     "admin.delete": "LÖSCHEN",
     "admin.no_imprints": "NOCH KEINE ABDRÜCKE",
+
+    "glossary.latentSpace": "Ein mathematischer Raum, in dem KI-Modelle komprimierte Repräsentationen von Trainingsdaten, wie menschliche Formen und Texturen, speichern.",
+    "glossary.hallucination": "Ein Phänomen, bei dem die KI nicht existierende Muster wahrnimmt und hochdetaillierte, aber völlig synthetische und falsche visuelle Informationen erzeugt.",
+    "glossary.biomass": "Menschliche Körper, die auf rohe, anonymisierte Datenpunkte reduziert werden – eine bloße Ressource für den algorithmischen Konsum.",
+    "glossary.chimera": "Eine synthetische Entität, die aus Fragmenten tausender verschiedener digitalisierter Körper zusammengesetzt ist und keinen realen Prototyp besitzt.",
+    "glossary.violence": "Die nicht einvernehmliche Ausbeutung, Veränderung oder Offenlegung der digitalen Identität und physischen Repräsentation einer Person durch Algorithmen.",
+    "glossary.deepfakes": "Synthetische Medien, bei denen eine Person in einem bestehenden Bild oder Video mithilfe von KI durch das Aussehen einer anderen Person ersetzt wird.",
   },
 };
