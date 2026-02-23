@@ -2,6 +2,7 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import traceImage from "@/assets/trace-image.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
+import InlineTerm from "@/components/InlineTerm";
 
 // Glitch text effect component
 const GlitchWord = ({ children }: { children: string }) => {
@@ -62,33 +63,65 @@ const GlitchWord = ({ children }: { children: string }) => {
 
 const paragraphKeys = ["s01.body_1", "s01.body_2", "s01.body_3", "s01.body_4"];
 
-// Words to make glitchy per paragraph
-const glitchWordsMap: Record<number, string[]> = {
-  0: ["shadow", "machine code", "reality", "тень", "машинному коду", "реальность", "Schatten", "Maschinencode", "Realität"],
-  1: ["latent space", "hallucination", "volume", "латентному пространству", "галлюцинацию", "объем", "latenten Raum", "Halluzinationen", "Volumen"],
-  2: ["biomass", "Frankenstein", "chimera", "биомассы", "Франкенштейн", "химеру", "Biomasse", "Schimäre"],
-  3: ["violence", "deepfakes", "weapon", "насилия", "дипфейков", "оружие", "Gewalt", "Deepfakes", "Waffe"],
+// Glossary term definitions per paragraph: { match variants per lang, glossary key }
+interface TermDef {
+  words: Record<string, string>; // lang -> word to match in text
+  glossaryKey: string;
+}
+
+const glossaryTermsMap: Record<number, TermDef[]> = {
+  1: [
+    { words: { en: "latent space", ru: "латентному пространству", de: "latenten Raum" }, glossaryKey: "glossary.latentSpace" },
+    { words: { en: "hallucination", ru: "галлюцинацию", de: "Halluzinationen" }, glossaryKey: "glossary.hallucination" },
+  ],
+  2: [
+    { words: { en: "biomass", ru: "биомассы", de: "Biomasse" }, glossaryKey: "glossary.biomass" },
+    { words: { en: "chimera", ru: "химеру", de: "Schimäre" }, glossaryKey: "glossary.chimera" },
+  ],
+  3: [
+    { words: { en: "violence", ru: "насилия", de: "Gewalt" }, glossaryKey: "glossary.violence" },
+    { words: { en: "deepfakes", ru: "дипфейков", de: "Deepfakes" }, glossaryKey: "glossary.deepfakes" },
+  ],
 };
 
-function applyGlitch(text: string, paraIndex: number) {
-  const words = glitchWordsMap[paraIndex] || [];
-  if (words.length === 0) return text;
+// Words to make glitchy per paragraph (excluding glossary terms to avoid conflicts)
+const glitchWordsMap: Record<number, string[]> = {
+  0: ["shadow", "machine code", "reality", "тень", "машинному коду", "реальность", "Schatten", "Maschinencode", "Realität"],
+  1: ["volume", "объем", "Volumen"],
+  2: ["Frankenstein", "Франкенштейн"],
+  3: ["weapon", "оружие", "Waffe"],
+};
 
-  // Find glitch words in text and wrap them
-  let parts: (string | { glitch: string })[] = [text];
-  
-  for (const word of words) {
-    const newParts: (string | { glitch: string })[] = [];
+type Part = string | { glitch: string } | { term: string; glossaryKey: string };
+
+function applyMarkers(text: string, paraIndex: number, lang: string): Part[] {
+  let parts: Part[] = [text];
+
+  // Apply glossary terms first
+  const termDefs = glossaryTermsMap[paraIndex] || [];
+  for (const td of termDefs) {
+    const word = td.words[lang];
+    if (!word) continue;
+    const newParts: Part[] = [];
     for (const part of parts) {
-      if (typeof part !== "string") {
-        newParts.push(part);
-        continue;
-      }
+      if (typeof part !== "string") { newParts.push(part); continue; }
       const idx = part.toLowerCase().indexOf(word.toLowerCase());
-      if (idx === -1) {
-        newParts.push(part);
-        continue;
-      }
+      if (idx === -1) { newParts.push(part); continue; }
+      if (idx > 0) newParts.push(part.slice(0, idx));
+      newParts.push({ term: part.slice(idx, idx + word.length), glossaryKey: td.glossaryKey });
+      if (idx + word.length < part.length) newParts.push(part.slice(idx + word.length));
+    }
+    parts = newParts;
+  }
+
+  // Apply glitch words
+  const glitchWords = glitchWordsMap[paraIndex] || [];
+  for (const word of glitchWords) {
+    const newParts: Part[] = [];
+    for (const part of parts) {
+      if (typeof part !== "string") { newParts.push(part); continue; }
+      const idx = part.toLowerCase().indexOf(word.toLowerCase());
+      if (idx === -1) { newParts.push(part); continue; }
       if (idx > 0) newParts.push(part.slice(0, idx));
       newParts.push({ glitch: part.slice(idx, idx + word.length) });
       if (idx + word.length < part.length) newParts.push(part.slice(idx + word.length));
@@ -103,14 +136,16 @@ function ScrollParagraph({
   textKey,
   paraIndex,
   t,
+  lang,
 }: {
   textKey: string;
   paraIndex: number;
   t: (key: string) => string;
+  lang: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const text = t(textKey);
-  const parts = applyGlitch(text, paraIndex);
+  const parts = applyMarkers(text, paraIndex, lang);
 
   return (
     <motion.div
@@ -134,25 +169,21 @@ function ScrollParagraph({
           color: "hsl(0,0%,15%)",
         }}
       >
-        {Array.isArray(parts)
-          ? parts.map((part, i) =>
-              typeof part === "string" ? (
-                <span key={i}>{part}</span>
-              ) : (
-                <GlitchWord key={i}>{part.glitch}</GlitchWord>
-              )
-            )
-          : text}
+        {parts.map((part, i) => {
+          if (typeof part === "string") return <span key={i}>{part}</span>;
+          if ("glitch" in part) return <GlitchWord key={i}>{part.glitch}</GlitchWord>;
+          if ("term" in part) return <InlineTerm key={i} term={part.term} description={t(part.glossaryKey)} />;
+          return null;
+        })}
       </p>
     </motion.div>
   );
 }
 
 export default function Section01Trace() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
 
-  // Scroll progress for the entire section
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -221,7 +252,7 @@ export default function Section01Trace() {
         </motion.div>
 
         {paragraphKeys.map((key, i) => (
-          <ScrollParagraph key={key} textKey={key} paraIndex={i} t={t} />
+          <ScrollParagraph key={key} textKey={key} paraIndex={i} t={t} lang={lang} />
         ))}
       </div>
 
@@ -296,7 +327,7 @@ export default function Section01Trace() {
         </div>
       </div>
 
-      {/* Mobile responsive: hide grid on small screens */}
+      {/* Mobile responsive */}
       <style>{`
         @media (max-width: 768px) {
           #trace {
