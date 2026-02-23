@@ -3,7 +3,6 @@ import CustomCursor from "@/components/CustomCursor";
 import StickyNav from "@/components/StickyNav";
 import HeroSection from "@/components/HeroSection";
 import Section01Trace from "@/components/Section01Trace";
-import Section02Theory from "@/components/Section02Theory";
 import Section03Gallery from "@/components/Section03Gallery";
 import SurfaceCanvas from "@/components/SurfaceCanvas";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -38,7 +37,6 @@ const Index = () => {
       <motion.div {...fadeUp}><HeroSection /></motion.div>
       <motion.div {...fadeUp}><Section03Gallery /></motion.div>
       <motion.div {...fadeUp}><Section01Trace /></motion.div>
-      <motion.div {...fadeUp}><Section02Theory /></motion.div>
       <motion.div {...fadeUp}><SurfaceCanvas /></motion.div>
 
       <footer style={{
