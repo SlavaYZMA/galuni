@@ -9,9 +9,9 @@ export const translations: Record<Lang, Record<string, string>> = {
     "hero.title_2": "CORPO",
     "hero.title_2_accent": "REALITY",
     "hero.title_2_end": "",
-    "hero.ref": "SPECIMEN_REF: CC-2025 / SHADOW_ARCHIVE",
+    "hero.ref": "SPECIMEN_REF: CC-2026 / SHADOW_ARCHIVE",
     "hero.status": "STATUS: ACTIVE",
-    "hero.subtitle": "CALCULATED CORPOREALITY / 2025",
+    "hero.subtitle": "CALCULATED CORPOREALITY / 2026",
     "hero.scroll": "↓ SCROLL TO ENTER ARCHIVE",
     "hero.canvas": "SURFACE_DEFORMATION_MODULE / MOVE CURSOR",
 
