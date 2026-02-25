@@ -55,7 +55,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     "s03.result": "FINAL MANIFESTATION",
 
     // Footer
-    "footer.left": "CALCULATED CORPOREALITY / 2025",
+    "footer.left": "CALCULATED CORPOREALITY / 2026",
     "footer.right": "SHADOW ARCHIVE v2.0.0",
 
     // Nav & Admin UI
@@ -97,9 +97,9 @@ export const translations: Record<Lang, Record<string, string>> = {
     "hero.title_2": "ТЕЛ",
     "hero.title_2_accent": "ЕСН",
     "hero.title_2_end": "ОСТЬ",
-    "hero.ref": "ЭКЗЕМПЛЯР: CC-2025 / АРХИВ_ТЕНЕЙ",
+    "hero.ref": "ЭКЗЕМПЛЯР: CC-2026 / АРХИВ_ТЕНЕЙ",
     "hero.status": "СТАТУС: АКТИВЕН",
-    "hero.subtitle": "ВЫЧИСЛЕННАЯ ТЕЛЕСНОСТЬ / 2025",
+    "hero.subtitle": "ВЫЧИСЛЕННАЯ ТЕЛЕСНОСТЬ / 2026",
     "hero.scroll": "↓ ПРОКРУТИТЕ ДЛЯ ВХОДА В АРХИВ",
     "hero.canvas": "МОДУЛЬ_ДЕФОРМАЦИИ_ПОВЕРХНОСТИ / ДВИГАЙТЕ КУРСОР",
 
@@ -139,7 +139,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     "s03.source": "ИСХОДНАЯ ТЕНЬ",
     "s03.result": "ФИНАЛЬНОЕ ПРОЯВЛЕНИЕ",
 
-    "footer.left": "ВЫЧИСЛЕННАЯ ТЕЛЕСНОСТЬ / 2025",
+    "footer.left": "ВЫЧИСЛЕННАЯ ТЕЛЕСНОСТЬ / 2026",
     "footer.right": "АРХИВ ТЕНЕЙ v2.0.0",
 
     "nav.hero": "00",
@@ -180,9 +180,9 @@ export const translations: Record<Lang, Record<string, string>> = {
     "hero.title_2": "KÖRPER",
     "hero.title_2_accent": "LICH",
     "hero.title_2_end": "KEIT",
-    "hero.ref": "PROBEN_REF: CC-2025 / SCHATTEN_ARCHIV",
+    "hero.ref": "PROBEN_REF: CC-2026 / SCHATTEN_ARCHIV",
     "hero.status": "STATUS: AKTIV",
-    "hero.subtitle": "BERECHNETE KÖRPERLICHKEIT / 2025",
+    "hero.subtitle": "BERECHNETE KÖRPERLICHKEIT / 2026",
     "hero.scroll": "↓ SCROLLEN ZUM ARCHIV",
     "hero.canvas": "OBERFLÄCHENDEFORMATIONSMODUL / CURSOR BEWEGEN",
 
@@ -222,7 +222,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     "s03.source": "QUELLSCHATTEN",
     "s03.result": "FINALE MANIFESTATION",
 
-    "footer.left": "BERECHNETE KÖRPERLICHKEIT / 2025",
+    "footer.left": "BERECHNETE KÖRPERLICHKEIT / 2026",
     "footer.right": "SCHATTENARCHIV v2.0.0",
 
     "nav.hero": "00",
