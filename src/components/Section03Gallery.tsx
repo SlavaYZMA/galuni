@@ -72,6 +72,7 @@ const ZoomableImage = ({ src, label }: { src: string; label: string }) => {
 
 export default function Section03Gallery() {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-50px" });
   const [imprints, setImprints] = useState<Imprint[]>([]);
