@@ -262,24 +262,25 @@ export default function Section01Trace() {
           style={{
             position: "sticky",
             top: 0,
-            height: "100vh",
+            maxHeight: "100vh",
             overflow: "hidden",
+            display: "flex",
+            alignItems: "center",
           }}
         >
           <video
-  src={traceVideo}
-  autoPlay
-  loop
-  muted
-  playsInline
-  style={{
-    width: "100%",
-    height: "100%",
-    objectFit: "contain", /* Изменили cover на contain */
-    filter: "grayscale(100%) contrast(1.1)",
-    backgroundColor: "black", /* Добавили фон, чтобы пустые поля по краям (если они появятся) не сливались с сайтом */
-  }}
-/>
+            src={traceVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{
+              width: "100%",
+              height: "auto",
+              display: "block",
+              filter: "grayscale(100%) contrast(1.1)",
+            }}
+          />
           {/* Pink gradient overlay */}
           <div
             style={{
