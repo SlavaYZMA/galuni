@@ -275,8 +275,9 @@ export default function Section01Trace() {
   style={{
     width: "100%",
     height: "100%",
-    objectFit: "cover",
+    objectFit: "contain", /* Изменили cover на contain */
     filter: "grayscale(100%) contrast(1.1)",
+    backgroundColor: "black", /* Добавили фон, чтобы пустые поля по краям (если они появятся) не сливались с сайтом */
   }}
 />
           {/* Pink gradient overlay */}
