@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Imprint {
   id: string;
@@ -71,6 +72,7 @@ const ZoomableImage = ({ src, label }: { src: string; label: string }) => {
 
 export default function Section03Gallery() {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-50px" });
   const [imprints, setImprints] = useState<Imprint[]>([]);
@@ -362,14 +364,16 @@ export default function Section03Gallery() {
               zIndex: 9999,
               display: "flex",
               flexDirection: "column",
-              padding: "2rem",
+              padding: isMobile ? "1rem" : "2rem",
+              overflowY: isMobile ? "auto" : "hidden",
             }}
           >
             <div
               style={{
                 display: "flex",
                 justifyContent: "space-between",
-                marginBottom: "1.5rem",
+                marginBottom: isMobile ? "1rem" : "1.5rem",
+                flexShrink: 0,
               }}
               onClick={(e) => e.stopPropagation()}
             >
@@ -377,7 +381,7 @@ export default function Section03Gallery() {
                 <h3
                   style={{
                     fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: "1.2rem",
+                    fontSize: isMobile ? "0.9rem" : "1.2rem",
                     fontWeight: "bold",
                   }}
                 >
@@ -387,7 +391,7 @@ export default function Section03Gallery() {
                   style={{
                     fontFamily: "'JetBrains Mono', monospace",
                     color: "hsl(0,0%,60%)",
-                    fontSize: "0.75rem",
+                    fontSize: isMobile ? "0.65rem" : "0.75rem",
                     marginTop: "0.5rem",
                     maxWidth: "600px",
                     lineHeight: 1.6,
@@ -404,18 +408,25 @@ export default function Section03Gallery() {
                   color: "hsl(323,100%,50%)",
                   cursor: "pointer",
                   fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: "1rem",
+                  fontSize: isMobile ? "0.8rem" : "1rem",
                   alignSelf: "flex-start",
                   padding: "0.5rem",
+                  flexShrink: 0,
                 }}
               >
-                [ CLOSE ]
+                {isMobile ? "✕" : "[ CLOSE ]"}
               </button>
             </div>
 
             <div
               onClick={(e) => e.stopPropagation()}
-              style={{ display: "flex", gap: "1rem", flex: 1, overflow: "hidden" }}
+              style={{
+                display: "flex",
+                flexDirection: isMobile ? "column" : "row",
+                gap: "1rem",
+                flex: isMobile ? undefined : 1,
+                overflow: isMobile ? "visible" : "hidden",
+              }}
             >
               <ZoomableImage
                 src={selectedImprint.shadow_image_url}
