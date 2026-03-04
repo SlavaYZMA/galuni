@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
-import traceImage from "@/assets/trace-image.jpg";
+import traceVideo from "@/assets/flesh_evolution_20260304_180751.mp4";
 import { useLanguage } from "@/i18n/LanguageContext";
 import InlineTerm from "@/components/InlineTerm";
 
@@ -266,16 +266,19 @@ export default function Section01Trace() {
             overflow: "hidden",
           }}
         >
-          <img
-            src={traceImage}
-            alt="body trace archive"
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              filter: "grayscale(100%) contrast(1.1)",
-            }}
-          />
+          <video
+  src={traceVideo}
+  autoPlay
+  loop
+  muted
+  playsInline
+  style={{
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    filter: "grayscale(100%) contrast(1.1)",
+  }}
+/>
           {/* Pink gradient overlay */}
           <div
             style={{
