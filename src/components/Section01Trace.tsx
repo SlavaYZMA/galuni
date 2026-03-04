@@ -262,10 +262,7 @@ export default function Section01Trace() {
           style={{
             position: "sticky",
             top: 0,
-            maxHeight: "100vh",
             overflow: "hidden",
-            display: "flex",
-            alignItems: "center",
           }}
         >
           <video
