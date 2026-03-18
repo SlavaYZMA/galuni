@@ -239,6 +239,14 @@ export const translations: Record<Lang, Record<string, string>> = {
     "s03.source": "QUELLSCHATTEN",
     "s03.result": "FINALE MANIFESTATION",
 
+    "s04.label": "ABSCHNITT 04 / KONTAKT",
+    "s04.title_1": "KONTA",
+    "s04.title_2": "KT",
+    "s04.email": "E-MAIL",
+    "s04.instagram": "INSTAGRAM",
+    "s04.website": "WEBSEITE",
+    "s04.copied": "IN DIE ZWISCHENABLAGE KOPIERT",
+
     "footer.left": "BERECHNETE KÖRPERLICHKEIT / 2026",
     "footer.right": "SCHATTENARCHIV v2.0.0",
 
