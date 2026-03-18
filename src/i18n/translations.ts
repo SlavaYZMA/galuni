@@ -54,6 +54,15 @@ export const translations: Record<Lang, Record<string, string>> = {
     "s03.source": "SOURCE SHADOW",
     "s03.result": "FINAL MANIFESTATION",
 
+    // Section 04 - Contact
+    "s04.label": "SECTION 04 / CONTACT",
+    "s04.title_1": "CONTA",
+    "s04.title_2": "CT",
+    "s04.email": "EMAIL",
+    "s04.instagram": "INSTAGRAM",
+    "s04.website": "WEBSITE",
+    "s04.copied": "COPIED TO CLIPBOARD",
+
     // Footer
     "footer.left": "CALCULATED CORPOREALITY / 2026",
     "footer.right": "SHADOW ARCHIVE v2.0.0",
