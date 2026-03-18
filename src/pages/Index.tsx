@@ -39,6 +39,7 @@ const Index = () => {
       <motion.div {...fadeUp}><Section03Gallery /></motion.div>
       <motion.div {...fadeUp}><Section01Trace /></motion.div>
       <motion.div {...fadeUp}><SurfaceCanvas /></motion.div>
+      <motion.div {...fadeUp}><Section04Contact /></motion.div>
 
       <footer style={{
         borderTop: "1px solid hsl(0,0%,88%)",
