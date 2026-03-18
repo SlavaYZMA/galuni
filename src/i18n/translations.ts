@@ -148,6 +148,14 @@ export const translations: Record<Lang, Record<string, string>> = {
     "s03.source": "ИСХОДНАЯ ТЕНЬ",
     "s03.result": "ФИНАЛЬНОЕ ПРОЯВЛЕНИЕ",
 
+    "s04.label": "РАЗДЕЛ 04 / КОНТАКТЫ",
+    "s04.title_1": "КОНТА",
+    "s04.title_2": "КТЫ",
+    "s04.email": "ПОЧТА",
+    "s04.instagram": "INSTAGRAM",
+    "s04.website": "САЙТ",
+    "s04.copied": "СКОПИРОВАНО В БУФЕР",
+
     "footer.left": "ВЫЧИСЛЕННАЯ ТЕЛЕСНОСТЬ / 2026",
     "footer.right": "АРХИВ ТЕНЕЙ v2.0.0",
 
