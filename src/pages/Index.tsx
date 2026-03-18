@@ -4,6 +4,7 @@ import StickyNav from "@/components/StickyNav";
 import HeroSection from "@/components/HeroSection";
 import Section01Trace from "@/components/Section01Trace";
 import Section03Gallery from "@/components/Section03Gallery";
+import Section04Contact from "@/components/Section04Contact";
 import SurfaceCanvas from "@/components/SurfaceCanvas";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -38,6 +39,7 @@ const Index = () => {
       <motion.div {...fadeUp}><Section03Gallery /></motion.div>
       <motion.div {...fadeUp}><Section01Trace /></motion.div>
       <motion.div {...fadeUp}><SurfaceCanvas /></motion.div>
+      <motion.div {...fadeUp}><Section04Contact /></motion.div>
 
       <footer style={{
         borderTop: "1px solid hsl(0,0%,88%)",

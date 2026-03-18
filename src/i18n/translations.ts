@@ -54,6 +54,15 @@ export const translations: Record<Lang, Record<string, string>> = {
     "s03.source": "SOURCE SHADOW",
     "s03.result": "FINAL MANIFESTATION",
 
+    // Section 04 - Contact
+    "s04.label": "SECTION 04 / CONTACT",
+    "s04.title_1": "CONTA",
+    "s04.title_2": "CT",
+    "s04.email": "EMAIL",
+    "s04.instagram": "INSTAGRAM",
+    "s04.website": "WEBSITE",
+    "s04.copied": "COPIED TO CLIPBOARD",
+
     // Footer
     "footer.left": "CALCULATED CORPOREALITY / 2026",
     "footer.right": "SHADOW ARCHIVE v2.0.0",
@@ -139,6 +148,14 @@ export const translations: Record<Lang, Record<string, string>> = {
     "s03.source": "ИСХОДНАЯ ТЕНЬ",
     "s03.result": "ФИНАЛЬНОЕ ПРОЯВЛЕНИЕ",
 
+    "s04.label": "РАЗДЕЛ 04 / КОНТАКТЫ",
+    "s04.title_1": "КОНТА",
+    "s04.title_2": "КТЫ",
+    "s04.email": "ПОЧТА",
+    "s04.instagram": "INSTAGRAM",
+    "s04.website": "САЙТ",
+    "s04.copied": "СКОПИРОВАНО В БУФЕР",
+
     "footer.left": "ВЫЧИСЛЕННАЯ ТЕЛЕСНОСТЬ / 2026",
     "footer.right": "АРХИВ ТЕНЕЙ v2.0.0",
 
@@ -221,6 +238,14 @@ export const translations: Record<Lang, Record<string, string>> = {
     "s03.empty": "KEINE ABDRÜCKE IM ARCHIV",
     "s03.source": "QUELLSCHATTEN",
     "s03.result": "FINALE MANIFESTATION",
+
+    "s04.label": "ABSCHNITT 04 / KONTAKT",
+    "s04.title_1": "KONTA",
+    "s04.title_2": "KT",
+    "s04.email": "E-MAIL",
+    "s04.instagram": "INSTAGRAM",
+    "s04.website": "WEBSEITE",
+    "s04.copied": "IN DIE ZWISCHENABLAGE KOPIERT",
 
     "footer.left": "BERECHNETE KÖRPERLICHKEIT / 2026",
     "footer.right": "SCHATTENARCHIV v2.0.0",
